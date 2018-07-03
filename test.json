@@ -1,0 +1,24 @@
+{
+ "builders": [
+  {
+   "type":"googlecompute",
+   "project_id":"PROJECT-ID",
+   "source_image":"centos-7-v20170918",
+   "zone":"asia-northeast1-a",
+   "ssh_username":"USERNAME",
+   "tags":"NETWORK-TAG",
+   "network":"NETWORK",
+   "subnetwork":"SUBNET",
+   "image_name":"packer-image-{{timestamp}}"
+  }
+ ],
+ "provisioners": [
+  {
+   "type":"shell",
+   "inline":[
+   "sudo yum -y update",
+   "sudo yum -y install nginx"
+   ]
+  }
+ ]
+}
